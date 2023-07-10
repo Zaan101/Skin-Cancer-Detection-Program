@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skin Cancer Detection Program</title>
+  <style>
+    /* Optional CSS to style the form */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .upload-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .upload-form label,
+    .upload-form input[type="submit"] {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .upload-form input[type="file"] {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Skin Cancer Detection Program</h1>
+  <form class="upload-form" method="post" enctype="multipart/form-data">
+    <label for="file">Select a file to upload:</label>
+    <input type="file" id="file" name="imagefile" accept=".jpg">
+    <input type="submit" value="Predict Image">
+  </form>
+  {% if prediction %}
+        <p class="text-center"> {{prediction}} </p>
+        <p class="text-center"> MEL,    NV,  BCC,  AKIEC,  BKL,  DF, VASC </p>
+        <img src="{{image_path}}" alt="Your Image">
+
+
+  {% endif %}
+</body>
+</html>
